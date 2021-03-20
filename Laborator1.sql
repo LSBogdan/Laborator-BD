@@ -168,21 +168,21 @@ ORDER BY salary, commission_pct DESC NULLS LAST;
 --Varianta 1:
 SELECT last_name, first_name
 FROM employees
-WHERE last_name LIKE '__a%';
+WHERE last_name LIKE ('__a%');
 --Varianta 2:
 SELECT last_name, first_nname
 FROM employees
-WHERE LOWER(last_name) LIKE '__a%'; 
+WHERE LOWER(last_name) LIKE ('__a%'); 
 
 --2.23.
 SELECT last_name
 FROM employees
-WHERE LOWER(last_name)LIKE '%l%l%' AND (department_id = 30 OR manager_id = 102); 
+WHERE LOWER(last_name)LIKE ('%l%l%') AND (department_id = 30 OR manager_id = 102); 
 
 --2.24.
 SELECT last_name, job_id, salary
 FROM employees
-WHERE (job_id LIKE '%CLERK%' OR job_id LIKE '%REP%') AND salary NOT IN (1000, 2000, 3000);
+WHERE (job_id LIKE ('%CLERK%') OR job_id LIKE ('%REP%')) AND salary NOT IN (1000, 2000, 3000);
 
 --2.25.
 SELECT department_name
