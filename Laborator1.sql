@@ -129,7 +129,7 @@ FROM employees
 WHERE EXTRACT(YEAR from hire_date)='1987';
 
 --2.18.
-SELECT last_name, first_name
+SELECT last_name, first_name, hire_date
 FROM employees
 WHERE TO_CHAR(hire_date, 'DD')=(SELECT TO_CHAR(SYSDATE, 'DD') FROM dual);
 --from dual nu e necesar
@@ -144,7 +144,7 @@ WHERE manager_id IS NULL;
 SELECT last_name, salary, commission_pct
 FROM employees
 WHERE commission_pct IS NOT NULL
-ORDER BY salary, commission_pct DESC;
+ORDER BY salary DESC, commission_pct DESC;
 --Varianta 2:
 SELECT last_name, salary sal, commission_pct com      
 FROM employees                                        
@@ -161,7 +161,7 @@ ORDER BY 2 DESC, 3 DESC;
 --2.21.
 SELECT last_name, salary, commission_pct
 FROM employees
-ORDER BY salary, commission_pct DESC NULLS LAST; 
+ORDER BY salary DESC, commission_pct DESC NULLS LAST; 
 --Se putea pune si FIRST in loc de LAST.
 
 --2.22.
@@ -170,7 +170,7 @@ SELECT last_name, first_name
 FROM employees
 WHERE last_name LIKE ('__a%');
 --Varianta 2:
-SELECT last_name, first_nname
+SELECT last_name, first_name
 FROM employees
 WHERE LOWER(last_name) LIKE ('__a%'); 
 
